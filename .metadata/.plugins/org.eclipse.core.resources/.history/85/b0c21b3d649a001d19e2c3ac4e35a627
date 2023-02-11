@@ -1,0 +1,18 @@
+package com.example.user.service.services;
+
+import java.util.List;
+
+import com.example.user.service.entities.User;
+
+public interface UserService {
+	
+	
+	void saveUser(User user);
+	
+	User getUser(String id);
+	
+	List<User> getAllUser();
+	
+	void delete(String id);
+
+}

@@ -1,0 +1,8 @@
+package com.example.user.service.entities;
+
+public class User {
+	
+	private String uid;
+	
+
+}
