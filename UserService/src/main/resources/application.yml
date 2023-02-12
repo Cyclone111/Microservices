@@ -25,3 +25,31 @@ spring:
 #    fetch-registry: true
 #    service-url:
 #      default-zone: http://localhost:8761/
+
+#Resilience config
+management:
+  health:
+    circuitbreakers:
+      enable: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpont:
+    health:
+      enabled: true
+      show-details: true
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      ratingHotelCircuitMethod:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreashold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 6s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
