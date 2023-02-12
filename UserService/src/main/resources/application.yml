@@ -1,6 +1,7 @@
 server:
   port: 8081
-  
+
+
 spring:
   application:
     name: USER-SERVICE
@@ -9,17 +10,18 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-    
+  config:
+    import: configserver:http://localhost:8085/
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      default-zone: http://localhost:8761/
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      default-zone: http://localhost:8761/
